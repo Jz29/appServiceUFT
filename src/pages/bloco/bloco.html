@@ -5,17 +5,58 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-  <ion-navbar color="danger">         <!-- CABEÇALHO VERMELHO -->
+  <ion-navbar color="dark">         <!-- CABEÇALHO VERMELHO -->
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Blocos</ion-title>
+    <ion-title>Blocos {{this.ordemProvider.ordemDB.nomeBloco}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 
 <ion-content padding>
-  <body style="position: absolute; top: 0px; left: 0px; height: 100%; width: 100%; overflow: hidden; background-size: cover; background-image: url('assets/image/blocos123.png'); background-position: center center;">
+  <!-- <body style="position: absolute; top: 0px; left: 0px; height: 90%; width: 90%; overflow: hidden; background-size: cover; background-image: url('assets/image/blocos123.png'); background-position: center center"
+  </body> -->
 
-  </body>
+  <ion-list radio-group>
+    <ion-list-header>
+      Bloco
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Bloco 3</ion-label>
+      <ion-radio checked="true" value="bloco_3"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bloco 4 (Reitoria)</ion-label>
+      <ion-radio value="bloco_4"></ion-radio>
+    </ion-item>
+  </ion-list>
+
+  <ion-list radio-group>
+    <ion-list-header>
+      Futuramente disponíveis
+    </ion-list-header>
+
+    <ion-item>
+      <ion-label>Bloco 1</ion-label>
+      <ion-radio value="bloco_1" disabled="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bloco 2</ion-label>
+      <ion-radio value="bloco_2" disabled="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bloco H</ion-label>
+      <ion-radio value="bloco_h" disabled="true"></ion-radio>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Bloco J</ion-label>
+      <ion-radio value="bloco_j" disabled="true"></ion-radio>
+    </ion-item>
+  </ion-list>
 </ion-content>

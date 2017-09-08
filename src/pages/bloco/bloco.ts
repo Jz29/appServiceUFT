@@ -1,25 +1,28 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 
-/**
- * Generated class for the BlocoPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { OrdemProvider } from '../../providers/ordem/ordem';
 
 @IonicPage()
 @Component({
   selector: 'page-bloco',
   templateUrl: 'bloco.html',
+  providers: [
+    OrdemProvider
+  ]
 })
 export class BlocoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  n1: number;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ordemProvider: OrdemProvider) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BlocoPage');
+    this.ordemProvider.ordemDB.nomeBloco = "Jz";
   }
 
 }
