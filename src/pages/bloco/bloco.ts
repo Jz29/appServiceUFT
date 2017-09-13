@@ -13,7 +13,7 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 })
 export class BlocoPage {
 
-  n1: number;
+  legenda: any = "Nenhum bloco selecionado";
 
   constructor(
     public navCtrl: NavController,
@@ -23,6 +23,12 @@ export class BlocoPage {
   ionViewDidLoad() {
     console.log('ionViewDidLoad BlocoPage');
     this.ordemProvider.ordemDB.nomeBloco = "Jz";
+
+
+  }
+
+  avisar(){
+    alert("Bloco selecionado: "+ this.legenda);
   }
 
 }

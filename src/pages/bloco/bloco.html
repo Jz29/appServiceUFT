@@ -18,21 +18,25 @@
   <!-- <body style="position: absolute; top: 0px; left: 0px; height: 90%; width: 90%; overflow: hidden; background-size: cover; background-image: url('assets/image/blocos123.png'); background-position: center center"
   </body> -->
 
-  <ion-list radio-group>
-    <ion-list-header>
-      Bloco
-    </ion-list-header>
 
-    <ion-item>
-      <ion-label>Bloco 3</ion-label>
-      <ion-radio checked="true" value="bloco_3"></ion-radio>
-    </ion-item>
+    <ion-list radio-group  [(ngModel)]="legenda">     <!-- SALVA 'value' EM 'legenda' -->
+      <ion-list-header>
+        Bloco
+      </ion-list-header>
 
-    <ion-item>
-      <ion-label>Bloco 4 (Reitoria)</ion-label>
-      <ion-radio value="bloco_4"></ion-radio>
-    </ion-item>
-  </ion-list>
+      <ion-item>
+        <ion-label>Bloco 3</ion-label>
+        <ion-radio checked="true" value="bloco_3" (click)="avisar()"></ion-radio>  <!-- [(ngModel)]="legenda" DESATIVA O 'checked' -->
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Bloco 4 (Reitoria)</ion-label>
+        <ion-radio value="bloco_4" (click)="avisar()"></ion-radio>
+      </ion-item>
+    </ion-list>
+    <!-- <input type="submit" value="Enviar" />     BOTÃO ENVIAR E CANCELAR
+    <input type="reset" value="Cancelar" /> -->
+
 
   <ion-list radio-group>
     <ion-list-header>
@@ -59,4 +63,6 @@
       <ion-radio value="bloco_j" disabled="true"></ion-radio>
     </ion-item>
   </ion-list>
+
+  Você escolheu: {{legenda}}
 </ion-content>
