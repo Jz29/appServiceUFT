@@ -2,6 +2,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
 import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
+
+import { AuthService } from '../providers/auth/auth-service';
+
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
@@ -15,7 +21,16 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OrdemProvider } from '../providers/ordem/ordem';
 import { HttpModule } from '@angular/http';
 
-@NgModule({
+const firebaseConfig = {                                // snippet de configuração do FireBase do projeto appUFT
+  apiKey: "AIzaSyCR_SaXc0J27h0CfQ-yiUsrnALC5QUdEPk",
+  authDomain: "appuftservice.firebaseapp.com",
+  databaseURL: "https://appuftservice.firebaseio.com",
+  projectId: "appuftservice",
+  storageBucket: "appuftservice.appspot.com",
+  messagingSenderId: "866532634170"
+};
+
+@NgModule({       // falta declarar os modulos do FireBase
   declarations: [
     MyApp,
     HomePage,
@@ -28,7 +43,10 @@ import { HttpModule } from '@angular/http';
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp),
-    HttpModule
+    HttpModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFireAuthModule,
+    AngularFireDatabaseModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -44,7 +62,8 @@ import { HttpModule } from '@angular/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    OrdemProvider
+    OrdemProvider,
+    AuthService
   ]
 })
 export class AppModule {}

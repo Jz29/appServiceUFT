@@ -9,7 +9,7 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Blocos {{this.ordemProvider.ordemDB.nomeBloco}}</ion-title>
+    <ion-title>Blocos</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -19,7 +19,7 @@
   </body> -->
 
 
-    <ion-list radio-group  [(ngModel)]="legenda">     <!-- SALVA 'value' EM 'legenda' -->
+    <ion-list radio-group  [(ngModel)]="this.ordemProvider.ordemDB.nomeBloco">     <!-- SALVA 'value' EM 'legenda' -->
       <ion-list-header>
         Bloco
       </ion-list-header>

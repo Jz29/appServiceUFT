@@ -13,8 +13,6 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 })
 export class BlocoPage {
 
-  legenda: any = "Nenhum bloco selecionado";
-
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -22,13 +20,7 @@ export class BlocoPage {
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad BlocoPage');
-    this.ordemProvider.ordemDB.nomeBloco = "Jz";
-
-
   }
 
-  avisar(){
-    alert("Bloco selecionado: "+ this.legenda);
-  }
-
+  avisar(){ alert("Ola, sou o João\n Seu provedor é: "+this.ordemProvider.ordemDB.nomeBloco); }
 }
