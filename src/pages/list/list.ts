@@ -10,11 +10,13 @@ export class ListPage {
   icons: string[];
   items: Array<{title: string, note: string, icon: string}>;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-    // If we navigated to this page, we will have an item available as a nav param
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams) {
+    // Se navegarmos para esta página, teremos um item disponível como um parâmetro de navegação
     this.selectedItem = navParams.get('item');
 
-    // Let's populate this page with some filler content for funzies
+    // Vamos preencher esta página com algum conteúdo de preenchimento
     this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
     'american-football', 'boat', 'bluetooth', 'build'];
 
@@ -29,7 +31,7 @@ export class ListPage {
   }
 
   itemTapped(event, item) {
-    // That's right, we're pushing to ourselves!
+    // Isso mesmo, estamos empurrando(push) para nós mesmos!
     this.navCtrl.push(ListPage, {
       item: item
     });

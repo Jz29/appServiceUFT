@@ -8,8 +8,8 @@
 </ion-header>
 
 <ion-content>
-
-  <ion-card> <!-- CARD 1 ||||||||||||||||||||||||||||||||-->
+<!-- |||||||||||||||||||||||||||||||CARD 1||||||||||||||||||||||||||||||||-->
+  <ion-card>
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/image/professorIcone.png">
@@ -18,17 +18,17 @@
       <p>Hoje as 08:00</p>
     </ion-item>
     <ion-card-content>
-      <div id='this.divIndice' style='display:none'>
+      <div id='div' style='display:none'>
         <p>
           Status:     Trancado<br>
           Ar:         Desligado<br>
           Data show:  Desligado
         </p>
       </div>
-    </ion-card-content>
+    </ion-card-content>{{this.n}}
   </ion-card>
-
-  <ion-card> <!-- CARD 2 ||||||||||||||||||||||||||||||||-->
+<!-- |||||||||||||||||||||||||||||||CARD 2||||||||||||||||||||||||||||||||-->
+  <ion-card> 
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/image/estudanteIcone.png">
@@ -37,17 +37,17 @@
       <p>Hoje as 08:00</p>
     </ion-item>
     <ion-card-content>
-      <div id='this.divIndice' style='display:none'>
+      <div id='div' style='display:none'>
         <p>
           Status:     Trancado<br>
           Ar:         Desligado<br>
           Data show:  Desligado
         </p>
       </div>
-    </ion-card-content>
+    </ion-card-content>{{this.n}}
   </ion-card>
-
-  <ion-card> <!-- CARD 3 ||||||||||||||||||||||||||||||||-->
+<!-- |||||||||||||||||||||||||||||||CARD 3||||||||||||||||||||||||||||||||-->
+  <ion-card (click)="mostrar()" >
     <ion-item>
       <ion-avatar item-start>
         <img src="../../assets/image/professorIcone.png">
@@ -56,14 +56,14 @@
       <p>Amanhã as 14:00</p>
     </ion-item>
     <ion-card-content>
-      <div id="this.divIndice" style='display:none'>
+      <div [id]="nN()" style='display:none'>
         <p>
           Status:     Trancado<br>
           Ar:         Desligado<br>
           Data show:  Desligado
         </p>
       </div>
-    </ion-card-content>
+    </ion-card-content>{{this.n}}
   </ion-card>
 
 </ion-content>

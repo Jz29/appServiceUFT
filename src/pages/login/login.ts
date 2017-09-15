@@ -5,6 +5,7 @@ import { NgForm } from '@angular/forms';
 import { AuthService } from '../../providers/auth/auth-service';    // providers
 import { User } from '../../providers/auth/user';                   // providers
 import { HomePage } from '../home/home';
+import { CriarContaPage } from '../criar-conta/criar-conta';
 
 @IonicPage()
 @Component({
@@ -47,6 +48,10 @@ export class LoginPage {
           toast.present();
         });
     }
+  }
+
+  openPage(){
+    this.navCtrl.setRoot(CriarContaPage);
   }
 
 }

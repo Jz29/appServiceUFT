@@ -1,5 +1,8 @@
 <ion-header>
-  <ion-navbar color="primary">
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
     <ion-title>
       Login
     </ion-title>
@@ -35,8 +38,8 @@
     </button>
   </form>
 
-  <button ion-button block clear (click)="resetPassword()">
-    Esqueci minha senha
+  <button ion-button block clear (click)="openPage()">
+    Ou criar uma conta
   </button>
 
 </ion-content>

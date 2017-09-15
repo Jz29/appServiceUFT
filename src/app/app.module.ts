@@ -12,6 +12,7 @@ import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
 import { ListPage } from '../pages/list/list';
 import { LoginPage } from '../pages/login/login';
+import { CriarContaPage } from '../pages/criar-conta/criar-conta';
 import { BlocoPage } from '../pages/bloco/bloco';
 import { OverviewPage } from '../pages/overview/overview';
 import { SolicitacaoPage } from '../pages/solicitacao/solicitacao';
@@ -37,6 +38,7 @@ const firebaseConfig = {                                // snippet de configura√
     ListPage,
     LoginPage,
     BlocoPage,
+    CriarContaPage,
     OverviewPage,
     SolicitacaoPage
   ],
@@ -55,6 +57,7 @@ const firebaseConfig = {                                // snippet de configura√
     ListPage,
     LoginPage,
     BlocoPage,
+    CriarContaPage,
     OverviewPage,
     SolicitacaoPage
   ],

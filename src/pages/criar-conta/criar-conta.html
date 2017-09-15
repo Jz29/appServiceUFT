@@ -1,0 +1,62 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Cadastro
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <form #form="ngForm" novalidate>
+
+    <ion-item>
+      <ion-label stacked>Nome completo</ion-label>
+      <ion-input type="text" name="nomeCompleto" [(ngModel)]="user.nomeCompleto" #nomeCompleto="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="nomeCompleto.errors && (nomeCompleto.dirty || nomeCompleto.touched)" class="text-danger">
+        Campo obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <ion-item>
+      <ion-label stacked>Email</ion-label>
+      <ion-input type="text" name="email" [(ngModel)]="user.email" #email="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="email.errors && (email.dirty || email.touched)" class="text-danger">
+        Campo obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <ion-item>
+      <ion-label stacked>Matricula</ion-label>
+      <ion-input type="text" name="matricula" [(ngModel)]="user.matricula" #matricula="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="matricula.errors && (matricula.dirty || matricula.touched)" class="text-danger">
+        Campo obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <div class="spacer" style="width: 300px; height: 38px;"></div>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <ion-item>
+        <ion-label stacked>Senha</ion-label>
+        <ion-input type="password" name="password" placeholder="Digite uma senha" [(ngModel)]="user.password" #password="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
+        O campo é obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <!--            CAMPO PARA REPETIÇÃO DE SENHA -->
+    <!-- <ion-item>
+      <ion-input type="password" name="rsenha" placeholder="Repita a senha" [(ngModel)]="rsenha" #rsenha="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="rsenha == password" class="text-danger">
+        O campo é obrigatório
+    </ion-item> -->
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="criarConta()">
+      Criar
+    </button>
+
+  </form>
+</ion-content>
