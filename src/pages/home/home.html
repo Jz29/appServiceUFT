@@ -3,67 +3,39 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>UFT - {{this.blocoIndice}}</ion-title>
+    <ion-title (click)="mudarBloco()" style="text-align:center">{{this.blocoIndice}}</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-<!-- |||||||||||||||||||||||||||||||CARD 1||||||||||||||||||||||||||||||||-->
-  <ion-card>
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/image/professorIcone.png">
-      </ion-avatar>
-      <h2>Lab 10</h2>
-      <p>Hoje as 08:00</p>
-    </ion-item>
-    <ion-card-content>
-      <div id='div' style='display:none'>
-        <p>
-          Status:     Trancado<br>
-          Ar:         Desligado<br>
-          Data show:  Desligado
-        </p>
-      </div>
-    </ion-card-content>{{this.n}}
-  </ion-card>
-<!-- |||||||||||||||||||||||||||||||CARD 2||||||||||||||||||||||||||||||||-->
-  <ion-card> 
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/image/estudanteIcone.png">
-      </ion-avatar>
-      <h2>Sala 39</h2>
-      <p>Hoje as 08:00</p>
-    </ion-item>
-    <ion-card-content>
-      <div id='div' style='display:none'>
-        <p>
-          Status:     Trancado<br>
-          Ar:         Desligado<br>
-          Data show:  Desligado
-        </p>
-      </div>
-    </ion-card-content>{{this.n}}
-  </ion-card>
-<!-- |||||||||||||||||||||||||||||||CARD 3||||||||||||||||||||||||||||||||-->
-  <ion-card (click)="mostrar()" >
-    <ion-item>
-      <ion-avatar item-start>
-        <img src="../../assets/image/professorIcone.png">
-      </ion-avatar>
-      <h2>Lab 9</h2>
-      <p>Amanhã as 14:00</p>
-    </ion-item>
-    <ion-card-content>
-      <div [id]="nN()" style='display:none'>
-        <p>
-          Status:     Trancado<br>
-          Ar:         Desligado<br>
-          Data show:  Desligado
-        </p>
-      </div>
-    </ion-card-content>{{this.n}}
-  </ion-card>
+  <ion-list>
+    <ion-card *ngFor="let item of items">
+      <ion-item>
+        <ion-avatar item-start>
+          <img src="../../assets/image/professorIcone.png">
+        </ion-avatar>
+        <h2>{{item.sala}}</h2>
+        <p>Hoje as 08:00</p>
+      </ion-item>
+      <ion-card-content>
+        <div>
+          <p>
+            Ar:         {{item.ar}}<br>
+            Data show:  {{item.ds}}
+          </p>
+        </div>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
 
+  <ion-item>
+    <ion-label>Dia:</ion-label>
+    <ion-datetime displayFormat="DD/MM" [(ngModel)]="this.dia"></ion-datetime>
+  </ion-item>
+
+  <ion-item>
+    <ion-label>Horario:</ion-label>
+    <ion-datetime displayFormat="HH:mm" [(ngModel)]="this.horario"></ion-datetime>
+  </ion-item>
+  
 </ion-content>
