@@ -1,5 +1,5 @@
 import { Component, ViewChild } from '@angular/core';
-import { IonicPage, NavController, NavParams, ToastController } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, ToastController, LoadingController } from 'ionic-angular';
 import { NgForm } from '@angular/forms';
 
 import { AuthService } from '../../providers/auth/auth-service';    // providers
@@ -21,7 +21,8 @@ export class LoginPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private toastCtrl: ToastController,
-    private authService: AuthService,) {
+    private authService: AuthService,
+    private carregarCtrl: LoadingController) {
   }
 
   ionViewDidLoad() {
@@ -29,9 +30,18 @@ export class LoginPage {
   }
 
   signIn() {
+    let carregando = this.carregarCtrl.create({
+      content: "Em instantes...",
+      duration: 500
+    });
+
+    if (this.user.email.indexOf('@') == -1)                         // COMPLETA O EMAIL COM @uft.edu.br
+      this.user.email = this.user.email + '@uft.edu.br'
+
     if (this.form.form.valid) {                                     // se o formulario for valido
       this.authService.signIn(this.user)
         .then(() => {                                               // se login aceito
+          carregando.present();                                     // CARREGANDO
           this.navCtrl.setRoot(HomePage);                           // entra na pagina Home
         })
         .catch((error: any) => {                                    // se der erro

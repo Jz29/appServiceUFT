@@ -6,20 +6,20 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
 
-  constructor(private angularFireAuth: AngularFireAuth) { }
+  constructor(private autenticacaoAF: AngularFireAuth) { }
 
   createUser(user: User) {
-    return this.angularFireAuth.auth.createUserWithEmailAndPassword(user.email, user.password);
+    return this.autenticacaoAF.auth.createUserWithEmailAndPassword(user.email, user.password);
   }
 
   signIn(user: User) {
-    return this.angularFireAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+    return this.autenticacaoAF.auth.signInWithEmailAndPassword(user.email, user.password);
   }
 
   signOut() : firebase.Promise<any> {
-    if (this.angularFireAuth.auth.currentUser.providerData.length) {
-      for (var i = 0; i < this.angularFireAuth.auth.currentUser.providerData.length; i++) {
-        var provider = this.angularFireAuth.auth.currentUser.providerData[i];
+    if (this.autenticacaoAF.auth.currentUser.providerData.length) {
+      for (var i = 0; i < this.autenticacaoAF.auth.currentUser.providerData.length; i++) {
+        var provider = this.autenticacaoAF.auth.currentUser.providerData[i];
       }
     }
 
@@ -27,10 +27,10 @@ export class AuthService {
   }
 
   private signOutFirebase() {
-    return this.angularFireAuth.auth.signOut();
+    return this.autenticacaoAF.auth.signOut();
   }
 
   resetPassword(email: string) {
-    return this.angularFireAuth.auth.sendPasswordResetEmail(email);
+    return this.autenticacaoAF.auth.sendPasswordResetEmail(email);
   }
 }
