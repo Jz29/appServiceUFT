@@ -9,19 +9,19 @@
 
 <ion-content>
   <ion-list>
-    <ion-card *ngFor="let item of items">
+    <ion-card *ngFor="let item of items | async">
       <ion-item>
         <ion-avatar item-start>
           <img src="../../assets/image/professorIcone.png">
         </ion-avatar>
-        <h2>{{item.sala}}</h2>
-        <p>Hoje as 08:00</p>
+        <h2>{{item.tipo}} {{item.numero}}</h2>
+        <p>{{item.dia}} as {{item.hora}}</p>
       </ion-item>
       <ion-card-content>
         <div>
           <p>
-            Ar:         {{item.ar}}<br>
-            Data show:  {{item.ds}}
+            Ar         {{item.ar}}<br>
+            Data show  {{item.ds}}
           </p>
         </div>
       </ion-card-content>
@@ -37,5 +37,13 @@
     <ion-label>Horario:</ion-label>
     <ion-datetime displayFormat="HH:mm" [(ngModel)]="this.horario"></ion-datetime>
   </ion-item>
-  
+
 </ion-content>
+
+<ion-footer>
+
+  <ion-fab bottom right>
+    <button ion-fab color="secondary" (click)="atualizar()"><ion-icon name="add"></ion-icon></button>
+  </ion-fab>
+
+</ion-footer>

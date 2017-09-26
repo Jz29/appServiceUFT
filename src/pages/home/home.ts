@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { NavController, ActionSheetController } from 'ionic-angular';
+import { FirebaseListObservable } from 'angularfire2/database';
+
+import { OrdemProvider } from '../../providers/ordem/ordem';
 
 @Component({
   selector: 'page-home',
@@ -7,18 +10,18 @@ import { NavController, ActionSheetController } from 'ionic-angular';
 })
 export class HomePage {
 
+  items: FirebaseListObservable<any[]>;
   blocoIndice: string = "Bloco 3";
   dia: any;
   horario: any;
-  items =  [{sala: 'lab 11', ar: 'ligado', ds: 'ligado'},
-            {sala: 'sala 39', ar: 'desligado', ds: 'desligado'},
-            {sala: 'lab 5', ar: 'ligado', ds: 'desligado'}];
+  // items =  [{sala: 'lab 11', ar: 'ligado', ds: 'ligado'},
+  //           {sala: 'sala 39', ar: 'desligado', ds: 'desligado'},
+  //           {sala: 'lab 5', ar: 'ligado', ds: 'desligado'}];
 
   constructor(
     public navCtrl: NavController,
-    public actionSheetCtrl: ActionSheetController) {
-
-  }
+    public actionSheetCtrl: ActionSheetController,
+    public ordemProvider: OrdemProvider){}
 
   ionViewDidLoad() {}
 
@@ -44,6 +47,10 @@ export class HomePage {
    });
 
    actionSheet.present();
+ }
+
+ atualizar(){
+   this.items = this.ordemProvider.getOrdem();
  }
 
 }

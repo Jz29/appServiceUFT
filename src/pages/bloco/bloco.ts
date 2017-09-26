@@ -22,5 +22,4 @@ export class BlocoPage {
     console.log('ionViewDidLoad BlocoPage');
   }
 
-  avisar(){ alert("Ola, sou o João\n Seu provedor é: "+this.ordemProvider.ordemDB.nomeBloco); }
 }
