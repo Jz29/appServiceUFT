@@ -42,6 +42,7 @@ export class LoginPage {
       this.authService.signIn(this.user)
         .then(() => {                                               // se login aceito
           carregando.present();                                     // CARREGANDO
+          this.authService.blockLogin = true;                       // bloqueia a página de login
           this.navCtrl.setRoot(HomePage);                           // entra na pagina Home
         })
         .catch((error: any) => {                                    // se der erro

@@ -7,43 +7,61 @@
   </ion-navbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="card-background-page">
+
   <ion-list>
     <ion-card *ngFor="let item of items | async">
-      <ion-item>
-        <ion-avatar item-start>
-          <img src="../../assets/image/professorIcone.png">
-        </ion-avatar>
-        <h2>{{item.tipo}} {{item.numero}}</h2>
-        <p>{{item.dia}} as {{item.hora}}</p>
-      </ion-item>
-      <ion-card-content>
-        <div>
-          <p>
-            Ar         {{item.ar}}<br>
-            Data show  {{item.ds}}
-          </p>
-        </div>
-      </ion-card-content>
+      <!-- <ion-item> -->
+        <!-- <ion-item-sliding> -->
+          <img src="../../assets/image/fundo.jpg"/>
+          <div class="card-title">{{item.tipo}} {{item.numero}}</div>
+          <div class="card-subtitle">{{item.responsavel}}{{item.aula}}</div>
+          <!-- <ion-item-options side="right">
+            <button ion-button color="light" icon-start>
+              <ion-icon name="megaphone"></ion-icon>
+              Informar
+            </button>
+            <button ion-button color="primary" icon-start>
+              <ion-icon name="code"></ion-icon>
+              Em Aula
+            </button>
+            <button ion-button color="secondary" icon-start>
+              <ion-icon name="game-controller-b"></ion-icon>
+              Livre
+            </button>
+          </ion-item-options>
+        </ion-item-sliding>
+      </ion-item> -->
     </ion-card>
   </ion-list>
-
-  <ion-item>
-    <ion-label>Dia:</ion-label>
-    <ion-datetime displayFormat="DD/MM" [(ngModel)]="this.dia"></ion-datetime>
-  </ion-item>
-
-  <ion-item>
-    <ion-label>Horario:</ion-label>
-    <ion-datetime displayFormat="HH:mm" [(ngModel)]="this.horario"></ion-datetime>
-  </ion-item>
 
 </ion-content>
 
 <ion-footer>
 
   <ion-fab bottom right>
-    <button ion-fab color="secondary" (click)="atualizar()"><ion-icon name="add"></ion-icon></button>
+    <button ion-fab color="secondary"><ion-icon name="add"></ion-icon></button>
   </ion-fab>
 
 </ion-footer>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- <ion-item>
+<ion-label>Dia:</ion-label>
+<ion-datetime displayFormat="DD/MM" [(ngModel)]="this.dia"></ion-datetime>
+</ion-item>
+
+<ion-item>
+<ion-label>Horario:</ion-label>
+<ion-datetime displayFormat="HH:mm" [(ngModel)]="this.horario"></ion-datetime>
+</ion-item> -->

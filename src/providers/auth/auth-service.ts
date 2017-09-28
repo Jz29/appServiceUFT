@@ -6,6 +6,8 @@ import * as firebase from 'firebase/app';
 @Injectable()
 export class AuthService {
 
+  blockLogin: boolean = false;
+
   constructor(private autenticacaoAF: AngularFireAuth) { }
 
   createUser(user: User) {

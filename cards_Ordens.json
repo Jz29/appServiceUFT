@@ -1,0 +1,21 @@
+{
+  "Nova Ordem" : {
+    "Identificacao": {
+      "NomeBloco": "none",
+      "NumeroSala": 0,
+      "TipoSala": "none"
+    },
+    "Conteudo": {
+      "Agendado": false,
+      "Dia": "none",
+      "Horario": "none",
+      "Descricao": "none"
+    },
+    "Status": {
+      "Situacao": "none",
+      "Ar": false,
+      "DataShow": false,
+      "StatusSala": false
+    }
+  }
+}

@@ -11,21 +11,21 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 export class HomePage {
 
   items: FirebaseListObservable<any[]>;
+  postagem: {};
   blocoIndice: string = "Bloco 3";
   dia: any;
   horario: any;
-  // items =  [{sala: 'lab 11', ar: 'ligado', ds: 'ligado'},
-  //           {sala: 'sala 39', ar: 'desligado', ds: 'desligado'},
-  //           {sala: 'lab 5', ar: 'ligado', ds: 'desligado'}];
 
   constructor(
     public navCtrl: NavController,
     public actionSheetCtrl: ActionSheetController,
-    public ordemProvider: OrdemProvider){}
+    public ordemProvider: OrdemProvider){ }
 
-  ionViewDidLoad() {}
+  ionViewDidLoad() {
+    this.items = this.ordemProvider.getOrdem("/Salas/bloco/3/salas");
+  }
 
-  mudarBloco() {
+ mudarBloco(){
    let actionSheet = this.actionSheetCtrl.create({
      title: 'Ir para:',
      buttons: [
@@ -45,15 +45,26 @@ export class HomePage {
        }
      ]
    });
-
    actionSheet.present();
  }
 
- atualizar(){
-   this.items = this.ordemProvider.getOrdem();
- }
-
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*  OBTER UM COMPONENTE PELO ID
   mostrar(){
@@ -62,5 +73,30 @@ export class HomePage {
         div.style.display = 'block';                      // mostra o conteúdo
     else                                                  // se conteúdo está a mostra
         div.style.display = 'none';                       // esconde o conteúdo
+  }
+
+  atualizar(){
+   //  this.items = this.ordemProvider.getOrdem();
+   this.postagem = {
+     identificacao: {
+       nomeBloco: "Bloco 3",
+       numeroSala: 10,
+       tipoSala: "Laboratorio"
+     },
+     conteudo: {
+       agendado: false,
+       dia: "string",
+       horario: "string",
+       descricao: "Descrição"
+     },
+     status: {
+       statusAula: "Livre",
+       ar: false,
+       dataShow: false,
+       statusSala: false
+     }
+   }
+
+   this.ordemProvider.setOrdem("/Ordens", this.postagem);
   }
 */

@@ -9,24 +9,31 @@ import * as firebase from 'firebase';
 export class OrdemProvider {
 
   ordemDB: FirebaseListObservable<any[]>;
+  path: string = "/Ordens/";
 
   constructor(
     private angularFireAuth: AngularFireAuth,
     private db: AngularFireDatabase,
     private fb: FirebaseApp)
     {
-      // if (this.angularFireAuth.auth){
-        // let path = '/' + this.angularFireAuth.auth.currentUser.uid;
-        this.ordemDB = db.list('/');
-      // }
+        this.ordemDB = db.list(this.path);
+        this.ordemDB.subscribe(
+          val => console.log(val)
+        );
     }
 
-  getOrdem(){
+  getOrdem(path: string){
+    this.ordemDB = this.db.list(path);
+    this.ordemDB.subscribe(
+      val => console.log(val)
+    );
+    
     return this.ordemDB;
   };
 
-  setOrdem(d){
-    this.ordemDB = d;
+  setOrdem(path: string, postagem: any){
+    this.ordemDB = this.db.list(path);
+    this.ordemDB.push( postagem );
   }
 
 }

@@ -1,0 +1,78 @@
+{
+  "bloco" : {
+    "3" : {
+      "salas" : {
+        "5" : {
+          "tipo" : "Laboratório",
+          "numero" : "5",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "10" : {
+          "tipo" : "Laboratório",
+          "numero" : "5",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "11" : {
+          "tipo" : "Laboratório",
+          "numero" : "5",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "12" : {
+          "tipo" : "Laboratório",
+          "numero" : "5",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "13" : {
+          "tipo" : "Laboratório",
+          "numero" : "5",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "26" : {
+          "tipo" : "Sala de Aula",
+          "numero" : "26",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        },
+        "39" : {
+          "tipo" : "Sala de Aula",
+          "numero" : "39",
+          "responsavel" : "none",
+          "aula" : "none",
+          "descricao" : "none",
+          "situacao" : "none",
+          "dia" : "none",
+          "hora" : "none"
+        }
+      }
+    }
+  }
+}
