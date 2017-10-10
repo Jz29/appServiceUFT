@@ -1,0 +1,101 @@
+{
+  "Ordens" : {
+    "Nova Ordem" : {
+      "Conteudo" : {
+        "Agendado" : false,
+        "Descricao" : "none",
+        "Dia" : "none",
+        "Horario" : "none"
+      },
+      "Identificacao" : {
+        "NomeBloco" : "none",
+        "NumeroSala" : 0,
+        "TipoSala" : "none"
+      },
+      "Status" : {
+        "Ar" : false,
+        "DataShow" : false,
+        "Situacao" : "none",
+        "StatusSala" : false
+      }
+    }
+  },
+  "Salas" : {
+    "bloco" : {
+      "3" : {
+        "salas" : {
+          "5" : {
+            "aula" : "IA",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "5",
+            "responsavel" : "Dra. Glenda - ",
+            "situacao" : "Em Aula",
+            "tipo" : "Laboratório"
+          },
+          "9" : {
+            "aula" : "Processamento de Imagem",
+            "descricao" : "",
+            "dia" : "",
+            "hora" : "",
+            "numero" : 9,
+            "responsavel" : "Dra. Glenda",
+            "situacao" : "Em Aula",
+            "tipo" : "Laboratório"
+          },
+          "10" : {
+            "aula" : "Livre",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "10",
+            "responsavel" : "",
+            "situacao" : "Agendado",
+            "tipo" : "Laboratório"
+          },
+          "11" : {
+            "aula" : "Livre",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "11",
+            "responsavel" : "",
+            "situacao" : "Livre",
+            "tipo" : "Laboratório"
+          },
+          "12" : {
+            "aula" : "Estrutura de Dados 2",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "12",
+            "responsavel" : "Dr. Rafael - ",
+            "situacao" : "Em Aula",
+            "tipo" : "Laboratório"
+          },
+          "26" : {
+            "aula" : "Compiladores",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "26",
+            "responsavel" : "Dr. Rossini -",
+            "situacao" : "Em Aula",
+            "tipo" : "Sala de Aula"
+          },
+          "39" : {
+            "aula" : "Livre",
+            "descricao" : "none",
+            "dia" : "none",
+            "hora" : "none",
+            "numero" : "39",
+            "responsavel" : "",
+            "situacao" : "Livre",
+            "tipo" : "Sala de Aula"
+          }
+        }
+      }
+    }
+  }
+}

@@ -4,7 +4,7 @@ import { NgForm } from '@angular/forms';
 
 import { AuthService } from '../../providers/auth/auth-service';    // providers
 import { User } from '../../providers/auth/user';                   // providers
-import { HomePage } from '../home/home';
+import { OverviewPage } from '../overview/overview';
 import { CriarContaPage } from '../criar-conta/criar-conta';
 
 @IonicPage()
@@ -43,7 +43,7 @@ export class LoginPage {
         .then(() => {                                               // se login aceito
           carregando.present();                                     // CARREGANDO
           this.authService.blockLogin = true;                       // bloqueia a página de login
-          this.navCtrl.setRoot(HomePage);                           // entra na pagina Home
+          this.navCtrl.setRoot(OverviewPage);                       // entra na pagina Home
         })
         .catch((error: any) => {                                    // se der erro
           let toast = this.toastCtrl.create({ duration: 3000, position: 'bottom' });

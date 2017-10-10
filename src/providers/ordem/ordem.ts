@@ -17,17 +17,10 @@ export class OrdemProvider {
     private fb: FirebaseApp)
     {
         this.ordemDB = db.list(this.path);
-        this.ordemDB.subscribe(
-          val => console.log(val)
-        );
     }
 
   getOrdem(path: string){
     this.ordemDB = this.db.list(path);
-    this.ordemDB.subscribe(
-      val => console.log(val)
-    );
-    
     return this.ordemDB;
   };
 
@@ -35,6 +28,12 @@ export class OrdemProvider {
     this.ordemDB = this.db.list(path);
     this.ordemDB.push( postagem );
   }
+
+  // updateOrdem(path: string, up: any){
+  //   this.ordemDB = this.db.list(path);
+  //   this.ordemDB.update( up );
+  // }
+
 
 }
 

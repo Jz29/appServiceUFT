@@ -4,6 +4,8 @@ import { FirebaseListObservable } from 'angularfire2/database';
 
 import { OrdemProvider } from '../../providers/ordem/ordem';
 
+import { SolicitacaoPage } from '../solicitacao/solicitacao';
+
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
@@ -25,28 +27,84 @@ export class HomePage {
     this.items = this.ordemProvider.getOrdem("/Salas/bloco/3/salas");
   }
 
- mudarBloco(){
-   let actionSheet = this.actionSheetCtrl.create({
-     title: 'Ir para:',
-     buttons: [
-       {
-         text: 'Bloco 3',
-         handler: () => {
-           this.blocoIndice = "Bloco 3";
-           console.log('Bloco trocado: ' + this.blocoIndice);
-         }
-       },
-       {
-         text: 'Bloco 4',
-         handler: () => {
-           this.blocoIndice = "Bloco 4";
-           console.log('Bloco trocado: ' + this.blocoIndice);
-         }
-       }
-     ]
-   });
-   actionSheet.present();
- }
+  mudarBloco() {
+    let mb = this.actionSheetCtrl.create({
+      title: 'Ir para:',
+      buttons: [
+        {
+          text: 'Bloco 3',
+          handler: () => {
+            this.blocoIndice = "Bloco 3";
+            console.log('Bloco trocado: ' + this.blocoIndice);
+          }
+        },
+        {
+          text: 'Bloco 4',
+          handler: () => {
+            this.blocoIndice = "Bloco 4";
+            console.log('Bloco trocado: ' + this.blocoIndice);
+          }
+        }
+      ]
+    });
+    mb.present();
+  }
+
+  informar(item) {
+    let i = this.actionSheetCtrl.create({
+      // title: 'Informar',
+      buttons: [
+        {
+          text: 'Em aula',
+          icon: 'code-working',
+          handler: () => {
+            // Comando atualizar (SET)
+            item.situacao = "Em Aula";
+            console.log(item);
+            // this.ordemProvider.setOrdem("/Ordens/", item);
+          }
+        },
+        {
+          text: 'Livre',
+          icon: 'code',
+          handler: () => {
+            // Comando atualizar (SET)
+            item.situacao = "Livre";
+            console.log(item);
+          }
+        },
+        {
+          text: 'Abrir/Destrancar',
+          icon: 'unlock',
+          handler: () => {
+            //
+          }
+        },
+        {
+          text: 'Fechar/Trancar',
+          icon: 'lock',
+          handler: () => {
+            //
+          }
+        },
+        {
+          text: 'Ocupado',
+          icon: 'alert',
+          handler: () => {
+            //
+          }
+        },
+        {
+          text: 'Outros',
+          icon: '',
+          handler: () => {
+            this.navCtrl.push(SolicitacaoPage);
+          }
+        }
+      ]
+    });
+    i.present();
+  }
 
 }
 
@@ -100,3 +158,18 @@ export class HomePage {
    this.ordemProvider.setOrdem("/Ordens", this.postagem);
   }
 */
+// jsonFireBase: {
+//   listaLab : [5,9,10,11,12],
+//   listaSalas : [26,39],
+//   Salas: [{
+//     "Sala" : {
+//       "tipo" : "Laboratório",
+//       "numero" : "",
+//       "responsavel" : "none",
+//       "aula" : "none",
+//       "descricao" : "none",
+//       "situacao" : "none",
+//       "dia" : "none",
+//       "hora" : "none"
+//     }}]
+// };

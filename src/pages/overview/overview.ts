@@ -1,12 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { FirebaseListObservable } from 'angularfire2/database';
 
-/**
- * Generated class for the OverviewPage page.
- *
- * See http://ionicframework.com/docs/components/#navigation for more info
- * on Ionic pages and navigation.
- */
+import { OrdemProvider } from '../../providers/ordem/ordem';
 
 @IonicPage()
 @Component({
@@ -15,11 +11,34 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class OverviewPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  it: any;
+  items: FirebaseListObservable<any[]>;
+  obj = {
+    "NomeBloco": "none",
+    "NumeroSala": 0,
+    "TipoSala": "none",
+    "Agendado": false,
+    "Dia": "none",
+    "Horario": "none",
+    "Descricao": "none",
+    "Situacao": "none",
+    "Ar": "Desligado",
+    "DataShow": "Desligado",
+    "StatusSala": "Trancado",
+    "img": "assets/image/estudanteIcone.png"
+  };
+
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams,
+    public ordemProvider: OrdemProvider) {
+      this.items = ordemProvider.getOrdem("/Ordens/");
   }
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad OverviewPage');
+  ionViewDidLoad() { }
+
+  atualizar() {
+    this.items.push(this.obj);
   }
 
 }

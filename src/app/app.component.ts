@@ -25,34 +25,29 @@ export class MyApp {
   pages: Array<{title: string, component: any}>;
 
   constructor(
-    public platform: Platform, 
-    public statusBar: StatusBar, 
+    public platform: Platform,
+    public statusBar: StatusBar,
     public splashScreen: SplashScreen) {
-    this.initializeApp();
 
+    this.initializeApp();
     // used for an example of ngFor and navigation
     this.pages = [
       { title: 'Home', component: HomePage },
       { title: 'Login', component: LoginPage },
       { title: 'Lista de Blocos', component: BlocoPage },
       { title: 'Overview', component: OverviewPage },
-      { title: 'Solicitação', component: SolicitacaoPage }
-    ];
+      { title: 'Solicitação', component: SolicitacaoPage }];
 
   }
 
   initializeApp() {
     this.platform.ready().then(() => {
-      // Okay, so the platform is ready and our plugins are available.
-      // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
     });
   }
 
   openPage(page) {
-    // Reset the content nav to have just this page
-    // we wouldn't want the back button to show in this scenario
-    this.nav.setRoot(page.component);     // COMANDO PARA NAVEGAR ENTRE PAGINAS
+    this.nav.push(page.component);     // COMANDO PARA NAVEGAR ENTRE PAGINAS
   }
 }

@@ -5,27 +5,18 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content>
 
   <form #form="ngForm" novalidate>
-    <ion-list>
 
-      <ion-item>
-        <ion-label stacked>Número da sala ou laboratório:</ion-label>
-        <input type="number" placeholder="Ex.: 26">
-      </ion-item>
+    <ion-item>
+      <ion-label stacked></ion-label>
+      <ion-select>
+        <ion-option value=""> </ion-option>
+        <ion-option value=""> </ion-option>
+      </ion-select>
+    </ion-item>
 
-      <ion-toggle toggle-class="toggle-positive">Ar-condicionado:</ion-toggle>
-      <ion-toggle toggle-class="toggle-positive">Data-show:</ion-toggle>
-    
-      <ion-item>
-        <ion-label stacked>Número da sala ou laboratório:</ion-label>
-        <input type="number" placeholder="Ex.: 26">
-      </ion-item>
-      
-      <textarea placeholder="Explicações e outros assuntos."></textarea>
-
-    </ion-list>
   </form>
 
 </ion-content>
