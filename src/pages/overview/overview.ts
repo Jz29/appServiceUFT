@@ -32,13 +32,13 @@ export class OverviewPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     public ordemProvider: OrdemProvider) {
-      this.items = ordemProvider.getOrdem("/Ordens/");
+      this.items = ordemProvider.getOrdem();
   }
 
   ionViewDidLoad() { }
 
-  atualizar() {
-    this.items.push(this.obj);
+  rm(item) {
+    this.ordemProvider.removeOrdem(item.$key);
   }
 
 }

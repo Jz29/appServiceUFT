@@ -9,7 +9,7 @@
 
 <ion-content>
 
-    <ion-card *ngFor="let item of items | async">
+    <ion-card *ngFor="let item of items | async" (click)="rm(item)">
 
       <ion-item>
         <ion-avatar item-start>
@@ -27,13 +27,13 @@
 
 </ion-content>
 
-<ion-footer>
+<!-- <ion-footer>
 
   <ion-fab bottom right>
     <button ion-fab color="secondary" (click)="atualizar()"><ion-icon name="sync"></ion-icon></button>
   </ion-fab>
 
-</ion-footer>
+</ion-footer> -->
 
 
 

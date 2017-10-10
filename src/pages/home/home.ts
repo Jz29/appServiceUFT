@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController } from 'ionic-angular';
+import { NavController, ActionSheetController, NavParams } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 import { OrdemProvider } from '../../providers/ordem/ordem';
+import { AuthService } from '../../providers/auth/auth-service';
+// import { User } from '../../providers/auth/user';
 
 import { SolicitacaoPage } from '../solicitacao/solicitacao';
 
@@ -20,11 +22,13 @@ export class HomePage {
 
   constructor(
     public navCtrl: NavController,
+    public navParametros: NavParams,
     public actionSheetCtrl: ActionSheetController,
-    public ordemProvider: OrdemProvider){ }
+    public ordemProvider: OrdemProvider) { }
+    // private auth: AuthService,
 
   ionViewDidLoad() {
-    this.items = this.ordemProvider.getOrdem("/Salas/bloco/3/salas");
+    this.items = this.ordemProvider.getSalas();
   }
 
   mudarBloco() {
@@ -58,33 +62,48 @@ export class HomePage {
           text: 'Em aula',
           icon: 'code-working',
           handler: () => {
-            // Comando atualizar (SET)
-            item.situacao = "Em Aula";
-            console.log(item);
-            // this.ordemProvider.setOrdem("/Ordens/", item);
+            item.aula = "Em Aula";
+            this.ordemProvider.updateOrdem(item.$key, item);
           }
         },
         {
           text: 'Livre',
           icon: 'code',
           handler: () => {
-            // Comando atualizar (SET)
-            item.situacao = "Livre";
-            console.log(item);
+            item.aula = "Livre";
+            item.responsavel = "";
+            this.ordemProvider.updateOrdem(item.$key, item);
           }
         },
         {
           text: 'Abrir/Destrancar',
           icon: 'unlock',
           handler: () => {
-            //
+            let obj = {
+              "NumeroSala": item.numero,
+              "TipoSala": item.tipo,
+              "Dia": "Hoje",
+              "Horario": Date(),
+              "Ar": "Ligar",
+              "img": "assets/image/estudanteIcone.png"
+            };
+            this.ordemProvider.setOrdem(obj);
           }
         },
         {
           text: 'Fechar/Trancar',
           icon: 'lock',
           handler: () => {
-            //
+            let obj = {
+              "NumeroSala": item.numero,
+              "TipoSala": item.tipo,
+              "Dia": "Hoje",
+              "Horario": Date(),
+              "Ar": "Desligar",
+              "DataShow": "Desligar",
+              "img": "assets/image/estudanteIcone.png"
+            };
+            this.ordemProvider.setOrdem(obj);
           }
         },
         {
@@ -98,6 +117,7 @@ export class HomePage {
           text: 'Outros',
           icon: '',
           handler: () => {
+            this.navParametros.data = item;
             this.navCtrl.push(SolicitacaoPage);
           }
         }

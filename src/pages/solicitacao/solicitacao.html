@@ -1,6 +1,6 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>Solicitação</ion-title>
+    <ion-title>{{item.tipo}} {{item.numero}}</ion-title>
   </ion-navbar>
 </ion-header>
 
@@ -9,13 +9,15 @@
 
   <form #form="ngForm" novalidate>
 
-    <ion-item>
-      <ion-label stacked></ion-label>
-      <ion-select>
-        <ion-option value=""> </ion-option>
-        <ion-option value=""> </ion-option>
-      </ion-select>
-    </ion-item>
+    <ion-list>
+      <ion-item>
+        <!-- <ion-label stacked></ion-label>
+        <ion-select>
+          <ion-option value=""> </ion-option>
+          <ion-option value=""> </ion-option>
+        </ion-select> -->
+      </ion-item>
+    </ion-list>
 
   </form>
 

@@ -15,8 +15,15 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class SolicitacaoPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+  item: any;
+
+  constructor(
+    public navCtrl: NavController,
+    public navParametros: NavParams)
+    {
+      this.item = navParametros.data;
+      console.log(this.item);
+    }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad SolicitacaoPage');

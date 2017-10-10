@@ -32,7 +32,7 @@ export class CriarContaPage {
     });
 
     if (this.user.email.indexOf('@') == -1)                   // COMPLETA O EMAIL COM @uft.edu.br
-      this.user.email = this.user.email + '@uft.edu.br'
+      this.user.email = this.user.email + '@uft.edu.br'       //
 
     this.authService.createUser(this.user)
     .then(() => {
