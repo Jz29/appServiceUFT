@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, ActionSheetController, NavParams } from 'ionic-angular';
+import { NavController, ActionSheetController, NavParams, ToastController } from 'ionic-angular';
 import { FirebaseListObservable } from 'angularfire2/database';
 
 import { OrdemProvider } from '../../providers/ordem/ordem';
 import { AuthService } from '../../providers/auth/auth-service';
-// import { User } from '../../providers/auth/user';
 
 import { SolicitacaoPage } from '../solicitacao/solicitacao';
 
@@ -17,19 +16,17 @@ export class HomePage {
   items: FirebaseListObservable<any[]>;
   postagem: {};
   blocoIndice: string = "Bloco 3";
-  dia: any;
-  horario: any;
+  toast: any;
 
   constructor(
     public navCtrl: NavController,
     public navParametros: NavParams,
     public actionSheetCtrl: ActionSheetController,
-    public ordemProvider: OrdemProvider) { }
-    // private auth: AuthService,
-
-  ionViewDidLoad() {
-    this.items = this.ordemProvider.getSalas();
-  }
+    private toastCtrl: ToastController,
+    public ordemProvider: OrdemProvider)
+    {
+      this.items = this.ordemProvider.getSalas();
+    }
 
   mudarBloco() {
     let mb = this.actionSheetCtrl.create({
@@ -39,14 +36,12 @@ export class HomePage {
           text: 'Bloco 3',
           handler: () => {
             this.blocoIndice = "Bloco 3";
-            console.log('Bloco trocado: ' + this.blocoIndice);
           }
         },
         {
           text: 'Bloco 4',
           handler: () => {
             this.blocoIndice = "Bloco 4";
-            console.log('Bloco trocado: ' + this.blocoIndice);
           }
         }
       ]
@@ -54,78 +49,104 @@ export class HomePage {
     mb.present();
   }
 
-  informar(item) {
+  hora() : string {
+    var hora = "";
+    var d = new Date();
+    if ( d.getMinutes() < 10 )
+      hora = d.getHours().toString() + ":0" + d.getMinutes().toString();
+    hora = d.getHours().toString() + ":" + d.getMinutes().toString();
+
+    return hora;
+  }
+
+  informar(e, sala) {
     let i = this.actionSheetCtrl.create({
-      // title: 'Informar',
       buttons: [
         {
           text: 'Em aula',
           icon: 'code-working',
+
           handler: () => {
-            item.aula = "Em Aula";
-            this.ordemProvider.updateOrdem(item.$key, item);
+            // sala.aula = "Em Aula";
+            // sala.atualizado = hora;
+            // Qual aula e professor
+            this.ordemProvider.updateSala(sala.$key, { "aula": "Em Aula", "atualizado": this.hora() } );
           }
         },
         {
           text: 'Livre',
           icon: 'code',
           handler: () => {
-            item.aula = "Livre";
-            item.responsavel = "";
-            this.ordemProvider.updateOrdem(item.$key, item);
+            sala.aula = "Livre";
+            sala.atualizado = this.hora();
+            this.ordemProvider.updateSala(sala.$key, { "aula": "Livre", "atualizado": sala.atualizado } );
           }
         },
         {
-          text: 'Abrir/Destrancar',
-          icon: 'unlock',
-          handler: () => {
-            let obj = {
-              "NumeroSala": item.numero,
-              "TipoSala": item.tipo,
-              "Dia": "Hoje",
-              "Horario": Date(),
-              "Ar": "Ligar",
-              "img": "assets/image/estudanteIcone.png"
-            };
-            this.ordemProvider.setOrdem(obj);
-          }
-        },
-        {
-          text: 'Fechar/Trancar',
+          text: 'Trancar',
           icon: 'lock',
           handler: () => {
             let obj = {
-              "NumeroSala": item.numero,
-              "TipoSala": item.tipo,
-              "Dia": "Hoje",
-              "Horario": Date(),
-              "Ar": "Desligar",
-              "DataShow": "Desligar",
-              "img": "assets/image/estudanteIcone.png"
+              "tipo": sala.tipo,
+              "numero": sala.numero,
+              "aula": "Fechada",
+              "responsavel": "",
+              "dia": "Hoje",
+              "horario": this.hora(),
+              "ar": "Desligar",
+              "dataShow": "Desligar",
+              "pedido": "Trancar",
+              "img": "assets/image/estudanteIcone.png",
+              "up": sala
             };
             this.ordemProvider.setOrdem(obj);
           }
         },
         {
-          text: 'Ocupado',
-          icon: 'alert',
+          text: 'Destrancar',
+          icon: 'unlock',
           handler: () => {
-            //
+            let obj = {
+              "tipo": sala.tipo,
+              "numero": sala.numero,
+              "aula": "Livre",
+              "responsavel": "",
+              "dia": "Hoje",
+              "horario": this.hora(),
+              "ar": "Ligar",
+              "pedido": "Destrancar",
+              "img": "assets/image/estudanteIcone.png",
+              "up": sala
+            };
+            this.ordemProvider.setOrdem(obj);
           }
         },
         {
           text: 'Outros',
-          icon: '',
+          icon: 'more',
           handler: () => {
-            this.navParametros.data = item;
+            this.navParametros.data = sala;
             this.navCtrl.push(SolicitacaoPage);
           }
+        },
+        {
+          text: "Cancelar"
         }
       ]
     });
     i.present();
   }
 
+  ultimaAtualizacao(sala) {
+    this.toast = this.toastCtrl.create({ duration: 1500, position: 'bottom' });
+    if ( sala.atualizado != "" ) {
+      this.toast.setMessage( "Última atualização as: " + sala.atualizado );
+    }
+    else
+      this.toast.setMessage( "Sem informações de atualização" );
+
+    this.toast.present();
+  }
 }
 
 

@@ -62,7 +62,6 @@ export class OrdemProvider {
     this.salasDB.remove(itemKey);
   }
 
-
 }
 
 // ordemDB={

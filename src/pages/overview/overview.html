@@ -9,19 +9,19 @@
 
 <ion-content>
 
-    <ion-card *ngFor="let item of items | async" (click)="rm(item)">
+    <ion-card *ngFor="let item of items | async" (press)="rm(item)">
 
       <ion-item>
         <ion-avatar item-start>
           <img src={{item.img}}>
         </ion-avatar>
-        <h2>{{item.TipoSala}} {{item.NumeroSala}}</h2>
-        <h3>{{item.Dia}} às {{item.Horario}}</h3>
+        <h2>{{item.tipo}} {{item.numero}}</h2>
+        <h3>{{item.dia}} às {{item.horario}}</h3>
       </ion-item>
       <ion-card-content>
-        <div><p>Ar            - {{item.Ar}}</p></div>
-        <div><p>Data show     - {{item.DataShow}}</p></div>
+        <p text-right>{{item.pedido}}</p>
       </ion-card-content>
+
     </ion-card>
 
 

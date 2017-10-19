@@ -9,8 +9,8 @@
 
 <ion-content class="card-background-page">
 
-      <ion-card *ngFor="let item of items | async" (click)="informar(item)">
-        <img src="assets/image/fundo.jpg"/>
+      <ion-card *ngFor="let item of items | async" (press)="informar($event, item)" (click)="ultimaAtualizacao(item)">
+        <img src="assets/image/fundo.png"/>
         <div class="card-title">{{item.tipo}} {{item.numero}}</div>
         <div class="card-subtitle">{{item.responsavel}}{{item.aula}}</div>
       </ion-card>
