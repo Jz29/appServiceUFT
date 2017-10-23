@@ -1,74 +1,124 @@
-<ion-header>
-  <ion-navbar>
-    <ion-title>{{item.tipo}} {{item.numero}}</ion-title>
-  </ion-navbar>
-</ion-header>
+<ion-content >
+  <ion-list>
 
+    <form>
 
-<ion-content>
+      <ion-item class="divisao"><ion-label><h3>Aparelhos</h3></ion-label></ion-item>
 
-  <form #form="ngForm" novalidate>
+      <ion-item class="divisao">
+        <ion-label stacked><h2>Ar-condicionado</h2></ion-label>
+        <ion-toggle></ion-toggle>
+      </ion-item>
 
-    <ion-list>
-      <ion-item>
-        <ion-title>Toppings</ion-title>
-        <!-- <ion-subtitle>Reajuste de brilho</ion-subtitle> -->
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Gammig</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Tools</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Debug</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Tracking</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>List</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-      <ion-item>
-        <ion-label>Ordenation</ion-label>
-        <ion-select multiple="true" cancelText="Nah" okText="Okay!">
-          <ion-option value="bacon" selected="true">Bacon</ion-option>
-          <ion-option value="olives">Black Olives</ion-option>
-          <ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
+      <!-- <ion-item class="range range-calm">Temperatura
+      <input type="range" value="50" min="16" max="26" step="1">
+    </ion-item> -->
+
+    <ion-item class="divisao">
+      <ion-label stacked><h2>Data-show</h2></ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+
+    <ion-item class="divisao">
+      <ion-label><h2>Outros</h2></ion-label>
+      <ion-input type="text" placeholder="Ex.: Cabo HDMI, Caixa de som, Cabo de rede..."></ion-input>
+    </ion-item>
+
+  </form>
+</ion-list>
+
+<ion-list>
+  <form>
+
+<ion-item class="divisao"><ion-label><h3>Agendamento</h3></ion-label></ion-item>
+
+    <ion-item class="divisao">
+      <ion-label stacked><h2>Ar-condicionado</h2></ion-label>
+      <ion-toggle></ion-toggle>
+    </ion-item>
+
+    <ion-item class="divisao">
+      <ion-label><h2>Dia</h2></ion-label>
+      <ion-datetime displayFormat="DD/MM"></ion-datetime>
+    </ion-item>
+
+    <ion-item class="divisao">
+      <ion-label><h2>Horario</h2></ion-label>
+      <ion-datetime displayFormat="HH:mm"></ion-datetime>
+    </ion-item>
 
   </form>
 
+</ion-list>
 </ion-content>
+
+
+<!--
+<ion-content>
+
+<form #form="ngForm" novalidate>
+
+<ion-list>
+<ion-item>
+<ion-label>Toppings</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label floating>Gammig</ion-label>
+<ion-label>Debug</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label stacked>Tools</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label>Debug</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label>Tracking</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label>List</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+<ion-item>
+<ion-label>Ordenation</ion-label>
+<ion-select multiple="true" cancelText="Nah" okText="Okay!">
+<ion-option value="bacon" selected="true">Bacon</ion-option>
+<ion-option value="olives">Black Olives</ion-option>
+<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
+</ion-select>
+</ion-item>
+</ion-list>
+
+</form>
+
+</ion-content>
+-->

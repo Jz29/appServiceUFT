@@ -21,6 +21,7 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
+  // rootPage: any = SolicitacaoPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
