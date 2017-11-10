@@ -1,0 +1,138 @@
+{
+ "AL": {
+   "disciplina": "Álgebra Linear",
+   "professor":"",
+ },
+ "BD":{
+   "disciplina": "Banco de Dados",
+   "professor":"",
+ },
+ "CalculoI":{
+   "disciplina": "Cálculo Diferencial e Integral I",
+   "professor":"",
+ },
+ "Calculo2":{
+   "disciplina": "Cálculo Diferencial e Integral II",
+   "professor":"",
+ },
+ "CN":{
+   "disciplina": "Cálculo Numérico",
+   "professor":"",
+ },
+ "CMP":{
+   "disciplina": "Compiladores",
+   "professor":"",
+ },
+ "CG":{
+   "disciplina": "Computação Gráfica",
+   "professor":"",
+ },
+ "ES":{
+   "disciplina": "Engenharia de Software",
+   "professor":"",
+ },
+ "EL":{
+   "disciplina": "Ética e Legislação",
+   "professor":"",
+ },
+ "FI":{
+   "disciplina": "Física Teórica e Experimental I",
+   "professor":"",
+ },
+"FII":{
+  "disciplina": "Física Teórica e Experimental II",
+  "professor":"",
+},
+ "IA":{
+   "disciplina": "Inteligência Artificial",
+   "professor":"",
+ },
+ "IA":{
+   "disciplina": "Inteligência Artificial",
+   "professor":"",
+ },
+ "IAIND":{
+   "disciplina": "Inteligência Artificial",
+   "professor":"",
+ },
+ "ICC":{
+   "disciplina": "Introdução à Ciência da Computação",
+   "professor":"",
+ },
+ "IP":{
+   "disciplina": "Introdução à Programação",
+   "professor":"",
+ },
+ "LP":{
+   "disciplina": "Linguagens de Programação",
+   "professor":"",
+ },
+ "LM":{
+   "disciplina": "Lógica Matemática",
+   "professor":"",
+ },
+ "MD":{
+   "disciplina": "Matemática Discreta",
+   "professor":"",
+ },
+ "MCAE":{
+   "disciplina": "Métodos Computacionais Aplicados à Engenharia",
+   "professor":"",
+ },
+ "OC":{
+   "disciplina": "Organização de Computadores",
+   "professor":"",
+ },
+ "PO":{
+   "disciplina": "Pesquisa Operacional",
+   "professor":"",
+ },
+ "PE":{
+   "disciplina": "Probabilidade e Estatística",
+   "professor":"",
+ },
+ "PI":{
+   "disciplina": "Processamento de Imagens",
+   "professor":"",
+ },
+ "POO":{
+   "disciplina": "Programação orientada a Objetos",
+   "professor":"",
+ },
+ "PBD":{
+   "disciplina": "Projeto de Banco de Dados",
+   "professor":"",
+ },
+ "PAA":{
+   "disciplina": "Projeto e Análise de Algoritmos",
+   "professor":"",
+ },
+ "PAA":{
+   "disciplina": "Projeto e Análise de Algoritmos",
+   "professor":"",
+ },
+ "SAS":{
+   "disciplina": "Segurança e Auditoria de Sistemas",
+   "professor":"",
+ },
+ "DIG":{
+   "disciplina": "Sistemas Digitais",
+   "professor":"",
+ },
+ "SO":{
+   "disciplina": "Sistemas Operacionais",
+   "professor":"",
+ },
+ "TCLFA":{
+   "disciplina": "Teoria da Computação, Linguagens Formais e Autômatos",
+   "professor":"",
+ },
+ "TAG":{
+   "disciplina": "Teoria e Algoritmos dos Grafos",
+   "professor":"",
+ },
+ "TACC":{
+   "disciplina": "Tópicos Avançados em Ciência da Computação",
+   "professor":"",
+ },
+}

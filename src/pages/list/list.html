@@ -1,23 +1,37 @@
 <ion-header>
-  <ion-navbar>
-    <button ion-button menuToggle>
-      <ion-icon name="menu"></ion-icon>
-    </button>
-    <ion-title>List</ion-title>
-  </ion-navbar>
+  <!-- <ion-navbar no-border-bottom>
+    <ion-title>Home</ion-title>
+  </ion-navbar> -->
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="lab">
+      <ion-segment-button value="laboratorio">
+        Labs
+      </ion-segment-button>
+      <ion-segment-button value="QH">
+        Horários
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-list>
-    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
-      <ion-icon [name]="item.icon" item-left></ion-icon>
-      {{item.title}}
-      <div class="item-note" item-right>
-        {{item.note}}
-      </div>
-    </button>
-  </ion-list>
-  <div *ngIf="selectedItem" padding>
-    You navigated here from <b>{{selectedItem.title}}</b>
+  <div [ngSwitch]="lab">
+
+    <ion-list *ngSwitchCase="'QH'">
+      <ion-card *ngFor="let qh of item">
+        <div class="qh-title">{{qh.disciplina}}</div>
+        <div class="qh-subtitle">{{qh.professor}}</div>
+      </ion-card>
+    </ion-list>
+
+    <ion-list *ngSwitchCase="'laboratorio'">
+      <ion-card *ngFor="let labs of salas | async">
+        <img src="assets/image/fundo.jpg"/>
+        <div class="card-title">{{labs.tipo}} {{labs.numero}}</div>
+        <div class="card-subtitle">{{labs.responsavel}}{{labs.aula}}</div>
+      </ion-card>
+    </ion-list>
+
   </div>
 </ion-content>

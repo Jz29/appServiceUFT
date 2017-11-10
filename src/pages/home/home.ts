@@ -15,7 +15,7 @@ export class HomePage {
 
   items: FirebaseListObservable<any[]>;
   postagem: {};
-  blocoIndice: string = "Bloco 3";
+  blocoIndice: string = "BLOCO 3";
   toast: any;
 
   constructor(
@@ -97,7 +97,7 @@ export class HomePage {
               "dataShow": "Desligar",
               "pedido": "Trancar",
               "img": "assets/image/estudanteIcone.png",
-              "up": sala
+              "sala": sala
             };
             this.ordemProvider.setOrdem(obj);
           }
@@ -116,7 +116,7 @@ export class HomePage {
               "ar": "Ligar",
               "pedido": "Destrancar",
               "img": "assets/image/estudanteIcone.png",
-              "up": sala
+              "sala": sala
             };
             this.ordemProvider.setOrdem(obj);
           }

@@ -14,6 +14,8 @@ import { BlocoPage } from '../pages/bloco/bloco';
 import { OverviewPage } from '../pages/overview/overview';
 import { SolicitacaoPage } from '../pages/solicitacao/solicitacao';
 
+// import { TabsPage } from '../pages/tabs/tabs';
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -21,7 +23,6 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   rootPage: any = HomePage;
-  // rootPage: any = SolicitacaoPage;
 
   pages: Array<{title: string, component: any, icon: string}>;
 
@@ -35,8 +36,8 @@ export class MyApp {
     this.pages = [
       { title: 'Home', component: HomePage, icon: "home" },
       { title: 'Login', component: LoginPage, icon: "log-in" },
-      { title: 'Lista de Blocos', component: BlocoPage, icon: "albums" },
       { title: 'Overview', component: OverviewPage, icon: "list" },
+      { title: 'Segment', component: ListPage, icon: "list" },
       { title: 'Solicitação', component: SolicitacaoPage, icon: "clipboard" }];
 
   }
@@ -49,6 +50,13 @@ export class MyApp {
   }
 
   openPage(page) {
-    this.nav.push(page.component);     // COMANDO PARA NAVEGAR ENTRE PAGINAS
+    if ( page.component == HomePage )
+      this.nav.setRoot(page.component);
+    else
+      this.nav.push(page.component);
+  }
+
+  logar(){
+    this.nav.push(LoginPage);
   }
 }

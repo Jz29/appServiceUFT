@@ -1,3 +1,55 @@
 page-list {
 
+  // .card-title {
+  //   position: absolute;
+  //   top: 36%;
+  //   font-size: 3.0em;
+  //   width: 100%;
+  //   font-weight: bold;
+  // }
+  //
+  // .card-subtitle {
+  //   font-size: 1.5em;
+  //   position: absolute;
+  //   top: 65%;
+  //   width: 100%;
+  // }
+
+  ion-card {
+    position: relative;
+    text-align: center;
+  }
+
+  .card-md {
+    border-radius: 8px;
+  }
+
+  .card-title {
+    position: absolute;
+    top: 36%;
+    font-size: 3.0em;
+    width: 100%;
+    font-weight: bold;
+    color: #fff;
+  }
+
+  .card-subtitle {
+    font-size: 1.5em;
+    position: absolute;
+    top: 65%;
+    width: 100%;
+    color: #fff;
+  }
+
+  .qh-title {
+    // position: absolute;
+    font-size: 1.4em;
+    font-weight: bold;
+  }
+
+  .qh-subtitle {
+    // position: absolute;
+    font-size: 1.1em;
+    }
+
 }

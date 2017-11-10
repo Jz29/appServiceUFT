@@ -10,6 +10,7 @@ export class OrdemProvider {
 
   ordensDB: FirebaseListObservable<any[]>;
   salasDB: FirebaseListObservable<any[]>;
+  anyDB: FirebaseListObservable<any[]>;
   pathOrdens: string = "/Ordens/";
   pathSalas: string = "/Salas/bloco/3/salas";
 
@@ -30,6 +31,11 @@ export class OrdemProvider {
   getSalas() {
     this.salasDB = this.db.list(this.pathSalas);
     return this.salasDB;
+  }
+
+  getJson(path: string) {
+    this.anyDB = this.db.list(path);
+    return this.anyDB;
   }
 
   setOrdem(postagem: any) {

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { ErrorHandler, NgModule } from '@angular/core';
-import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
+import { IonicApp, IonicErrorHandler, IonicModule, NavController } from 'ionic-angular';
 
 import { AngularFireModule } from 'angularfire2';
 import { AngularFireAuthModule } from 'angularfire2/auth';
@@ -31,7 +31,7 @@ const firebaseConfig = {                                // snippet de configura√
   messagingSenderId: "866532634170"
 };
 
-@NgModule({       // falta declarar os modulos do FireBase
+@NgModule({
   declarations: [
     MyApp,
     HomePage,

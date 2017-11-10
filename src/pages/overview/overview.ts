@@ -11,11 +11,8 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 })
 export class OverviewPage {
 
-  it: any;
   items: FirebaseListObservable<any[]>;
   lab: any;
-  Sala: {};
-  Ordem: {};
 
   constructor(
     public navCtrl: NavController,
@@ -35,9 +32,10 @@ export class OverviewPage {
           text: 'Concluído',
           icon: 'thumbs-up',
           handler: () => {
-            this.lab = card.up;
+            this.lab = card.sala;
             this.lab.aula = card.aula;
             this.lab.responsavel = card.responsavel;
+            this.lab.horario = this.hora();
             this.ordemProvider.updateSala(card.numero, this.lab);
             this.ordemProvider.removeOrdem(card.$key);
           }
@@ -52,5 +50,15 @@ export class OverviewPage {
       ]
     });
     i.present();
+  }
+
+  hora() : string {
+    var hora = "";
+    var d = new Date();
+    if ( d.getMinutes() < 10 )
+      hora = d.getHours().toString() + ":0" + d.getMinutes().toString();
+    hora = d.getHours().toString() + ":" + d.getMinutes().toString();
+
+    return hora;
   }
 }

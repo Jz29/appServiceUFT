@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar no-border-bottom class="navbar">
 
     <ion-title (click)="mudarBloco()" style="text-align: center;">{{this.blocoIndice}}</ion-title>
 
@@ -17,24 +17,23 @@
 </ion-header>
 
 <ion-content class="card-background-page">
-  <!-- <ion-refresher>
-    <ion-refresher-content
-      pullingIcon="arrow-dropdown"
-      pullingText="Puxe para atualizar"
-      refreshingSpinner="bubbles"
-      refreshingText="Atualizando...">
-    </ion-refresher-content>
-  </ion-refresher> -->
 
   <ion-card *ngFor="let item of items | async" (press)="informar($event, item)" (click)="ultimaAtualizacao(item)">
-    <img src="assets/image/{{item.numero}}.jpg"/>
+    <img src="assets/image/fundo.jpg"/>
     <div class="card-title">{{item.tipo}} {{item.numero}}</div>
     <div class="card-subtitle">{{item.responsavel}}{{item.aula}}</div>
   </ion-card>
 
 </ion-content>
 
-
+<ion-footer>
+  <ion-toolbar>
+    <ion-tabs class="tabs-basic">
+      <ion-tab tabTitle="Home" [root]="rootPage"></ion-tab>
+      <ion-tab tabTitle="News" [root]="rootPage"></ion-tab>
+    </ion-tabs>
+  </ion-toolbar>
+</ion-footer>
 
 <!-- <ion-item>
 <ion-label>Dia:</ion-label>
