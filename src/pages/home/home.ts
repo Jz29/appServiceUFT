@@ -6,6 +6,7 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 import { AuthService } from '../../providers/auth/auth-service';
 
 import { SolicitacaoPage } from '../solicitacao/solicitacao';
+import { ListPage } from '../list/list';
 
 @Component({
   selector: 'page-home',
@@ -15,18 +16,22 @@ export class HomePage {
 
   items: FirebaseListObservable<any[]>;
   postagem: {};
-  blocoIndice: string = "BLOCO 3";
+  blocoIndice: string = "Bloco 3";
   toast: any;
+  usuario: any;
 
   constructor(
     public navCtrl: NavController,
+    private conta: AuthService,
     public navParametros: NavParams,
     public actionSheetCtrl: ActionSheetController,
     private toastCtrl: ToastController,
     public ordemProvider: OrdemProvider)
     {
-      this.items = this.ordemProvider.getSalas();
+      this.items = ordemProvider.getSalas();
     }
+
+  ionViewDidLoad() {}
 
   mudarBloco() {
     let mb = this.actionSheetCtrl.create({
@@ -35,13 +40,13 @@ export class HomePage {
         {
           text: 'Bloco 3',
           handler: () => {
-            this.blocoIndice = "Bloco 3";
+            // this.blocoIndice = "Bloco 3";
           }
         },
         {
-          text: 'Bloco 4',
+          text: 'Bloco 4 (Indisponivel)',
           handler: () => {
-            this.blocoIndice = "Bloco 4";
+            // this.blocoIndice = "Bloco 4";
           }
         }
       ]
@@ -50,13 +55,27 @@ export class HomePage {
   }
 
   hora() : string {
-    var hora = "";
+    var hora: number, min: number;
+    var tempo = "";
     var d = new Date();
-    if ( d.getMinutes() < 10 )
-      hora = d.getHours().toString() + ":0" + d.getMinutes().toString();
-    hora = d.getHours().toString() + ":" + d.getMinutes().toString();
 
-    return hora;
+    hora = d.getHours();
+    min = d.getMinutes();
+    if ( hora == 0 )
+      tempo = "00:";
+    else if ( hora < 10 )
+      tempo = "0" + hora.toString() + ":";
+    else
+      tempo = hora.toString() + ":";
+
+    if ( min == 0 )
+      tempo = tempo + "00";
+    else if ( min < 10 )
+      tempo = tempo + "0" + min.toString();
+    else
+      tempo = tempo + min.toString();
+
+    return tempo;
   }
 
   informar(e, sala) {
@@ -67,8 +86,6 @@ export class HomePage {
           icon: 'code-working',
 
           handler: () => {
-            // sala.aula = "Em Aula";
-            // sala.atualizado = hora;
             // Qual aula e professor
             this.ordemProvider.updateSala(sala.$key, { "aula": "Em Aula", "atualizado": this.hora() } );
           }
@@ -77,7 +94,7 @@ export class HomePage {
           text: 'Livre',
           icon: 'code',
           handler: () => {
-            sala.aula = "Livre";
+            // sala.aula = "Livre";
             sala.atualizado = this.hora();
             this.ordemProvider.updateSala(sala.$key, { "aula": "Livre", "atualizado": sala.atualizado } );
           }
@@ -130,7 +147,8 @@ export class HomePage {
           }
         },
         {
-          text: "Cancelar"
+          text: "Cancelar",
+          role: 'cancel'
         }
       ]
     });
@@ -146,6 +164,10 @@ export class HomePage {
       this.toast.setMessage( "Sem informações de atualização" );
 
     this.toast.present();
+  }
+
+  quadro_De_Avisos() {
+    this.navCtrl.push(ListPage);
   }
 }
 

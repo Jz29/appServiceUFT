@@ -13,13 +13,19 @@ import { OrdemProvider } from '../../providers/ordem/ordem';
 })
 export class BlocoPage {
 
+  feedback: string;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
     public ordemProvider: OrdemProvider) {}
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad BlocoPage');
+  ionViewDidLoad() {}
+
+  enviar() {
+    if ( this.feedback != null )
+      this.ordemProvider.setJson("/Feedback/", { mensagem: this.feedback });
+    this.navCtrl.pop();
   }
 
 }

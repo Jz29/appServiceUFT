@@ -1,68 +1,25 @@
-<!--
-  Generated template for the BlocoPage page.
-
-  See http://ionicframework.com/docs/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-  <ion-navbar color="dark">         <!-- CABEÇALHO VERMELHO -->
+  <ion-navbar color="dark">
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Blocos</ion-title>
+    <ion-title id="text-feedback">Feedback</ion-title>
   </ion-navbar>
 </ion-header>
 
-
 <ion-content padding>
-  <!-- <body style="position: absolute; top: 0px; left: 0px; height: 90%; width: 90%; overflow: hidden; background-size: cover; background-image: url('assets/image/blocos123.png'); background-position: center center"
-  </body> -->
-
-
-    <ion-list radio-group  [(ngModel)]="this.ordemProvider.ordemDB.nomeBloco">     <!-- SALVA 'value' EM 'legenda' -->
-      <ion-list-header>
-        Bloco
-      </ion-list-header>
-
-      <ion-item>
-        <ion-label>Bloco 3</ion-label>
-        <ion-radio checked="true" value="bloco_3"></ion-radio>  <!-- [(ngModel)]="legenda" DESATIVA O 'checked' -->
-      </ion-item>
-
-      <ion-item>
-        <ion-label>Bloco 4 (Reitoria)</ion-label>
-        <ion-radio value="bloco_4"></ion-radio>
-      </ion-item>
-    </ion-list>
-    <!-- <input type="submit" value="Enviar" />     BOTÃO ENVIAR E CANCELAR
-    <input type="reset" value="Cancelar" /> -->
-
-
-  <ion-list radio-group>
-    <ion-list-header>
-      Futuramente disponíveis
-    </ion-list-header>
-
-    <ion-item>
-      <ion-label>Bloco 1</ion-label>
-      <ion-radio value="bloco_1" disabled="true"></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Bloco 2</ion-label>
-      <ion-radio value="bloco_2" disabled="true"></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Bloco H</ion-label>
-      <ion-radio value="bloco_h" disabled="true"></ion-radio>
-    </ion-item>
-
-    <ion-item>
-      <ion-label>Bloco J</ion-label>
-      <ion-radio value="bloco_j" disabled="true"></ion-radio>
-    </ion-item>
-  </ion-list>
-
-  Você escolheu: {{legenda}}
+  <p id="text-feedback-big">O que você está achando do MONITORANDO UFT?</p>
+  <p id="text-feedback-small">Nos conte sua experiência e os pontos que precisam ser melhorados:</p>
+  <ion-item>
+    <ion-input [(ngModel)]="this.feedback" type="text" placeholder="Deixe aqui sua opinião..."></ion-input>
+  </ion-item>
 </ion-content>
+
+<ion-footer>
+  <ion-toolbar>
+    <button class="enviar" color="dark" (click)="enviar()" ion-button icon-only full>
+      Enviar
+      <ion-icon name="send" icon-end></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

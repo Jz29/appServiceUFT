@@ -22,6 +22,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { OrdemProvider } from '../providers/ordem/ordem';
 import { HttpModule } from '@angular/http';
 
+import { TabsPage } from '../pages/tabs/tabs';
+
 const firebaseConfig = {                                // snippet de configura√ß√£o do FireBase do projeto appUFT
   apiKey: "AIzaSyCR_SaXc0J27h0CfQ-yiUsrnALC5QUdEPk",
   authDomain: "appuftservice.firebaseapp.com",
@@ -40,7 +42,8 @@ const firebaseConfig = {                                // snippet de configura√
     BlocoPage,
     CriarContaPage,
     OverviewPage,
-    SolicitacaoPage
+    SolicitacaoPage,
+    TabsPage
   ],
   imports: [
     BrowserModule,
@@ -58,7 +61,8 @@ const firebaseConfig = {                                // snippet de configura√
     BlocoPage,
     CriarContaPage,
     OverviewPage,
-    SolicitacaoPage
+    SolicitacaoPage,
+    TabsPage
   ],
   providers: [
     StatusBar,

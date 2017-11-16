@@ -8,6 +8,6 @@ import { OverviewPage } from './overview';
   ],
   imports: [
     IonicPageModule.forChild(OverviewPage),
-  ],
+  ]
 })
 export class OverviewPageModule {}

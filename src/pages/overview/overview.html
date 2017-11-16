@@ -1,29 +1,38 @@
 <ion-header>
   <ion-navbar>
+
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title style="text-align:center">Solicitações</ion-title>
+
+    <ion-title id="title">Solicitações</ion-title> <!--  style="text-align:center" -->
+
+    <ion-buttons end (click)="sair()">
+      <button ion-button small> <!-- <ion-icon name="log-out"></ion-icon> -->
+        Sair
+      </button>
+    </ion-buttons>
+
   </ion-navbar>
 </ion-header>
 
 <ion-content>
 
-    <ion-card *ngFor="let item of items | async" (press)="rm(item)">
+  <ion-card *ngFor="let item of items | async" (press)="rm(item)">
 
-      <ion-item>
-        <ion-avatar item-start>
-          <img src={{item.img}}>
-        </ion-avatar>
-        <h2>{{item.tipo}} {{item.numero}}</h2>
-        <h3>{{item.dia}} às {{item.horario}}</h3>
-      </ion-item>
-      <ion-card-content>
-        <p text-right>{{item.pedido}}</p>
-      </ion-card-content>
+    <!-- <p *ngIf="( item != null )" style="text-align: center">Nenhuma Solicitação</p> -->
 
-    </ion-card>
-
+    <ion-item>
+      <ion-avatar item-start>
+        <img src={{item.img}}>
+      </ion-avatar>
+      <h2>{{item.tipo}} {{item.numero}}</h2>
+      <h3>{{item.dia}} às {{item.horario}}</h3>
+    </ion-item>
+    <ion-card-content>
+      <p text-right>{{item.pedido}}</p>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
 

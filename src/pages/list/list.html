@@ -1,15 +1,15 @@
 <ion-header>
-  <!-- <ion-navbar no-border-bottom>
-    <ion-title>Home</ion-title>
-  </ion-navbar> -->
+  <ion-navbar no-border-bottom>
+    <ion-title>Mural de Avisos</ion-title>
+  </ion-navbar>
 
   <ion-toolbar no-border-top>
     <ion-segment [(ngModel)]="lab">
       <ion-segment-button value="laboratorio">
-        Labs
+        Bloco de Notas
       </ion-segment-button>
       <ion-segment-button value="QH">
-        Horários
+        Monitorias
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
@@ -25,13 +25,13 @@
       </ion-card>
     </ion-list>
 
-    <ion-list *ngSwitchCase="'laboratorio'">
+    <!-- <ion-list *ngSwitchCase="'laboratorio'">
       <ion-card *ngFor="let labs of salas | async">
         <img src="assets/image/fundo.jpg"/>
         <div class="card-title">{{labs.tipo}} {{labs.numero}}</div>
         <div class="card-subtitle">{{labs.responsavel}}{{labs.aula}}</div>
       </ion-card>
-    </ion-list>
+    </ion-list> -->
 
   </div>
 </ion-content>

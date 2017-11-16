@@ -16,8 +16,30 @@
 // automatically applied to the <body> element in the app.
 
 [icon-only] ion-icon {
-  padding: 0 0em;
-  font-size: 1.8em;
+  padding: 0 1em;
+  font-size: 2.0em;
   line-height: 1.5;
   pointer-events: none;
+}
+
+.painel-menu {
+  text-align: center;
+  width: 300px;
+  height: 100px;
+}
+
+.botao {
+  // text-align: end;
+}
+
+#bem-vindo {
+  color: #fff;
+  font-family: "Times New Roman", Times, serif;
+  // font-family: "Courier New", Courier, monospace;
+  font-style: italic;
+}
+
+#content-menu {
+  color: #000;
+  background-color: #222;
 }

@@ -23,10 +23,12 @@ export class LoginPage {
     private toastCtrl: ToastController,
     private authService: AuthService,
     private carregarCtrl: LoadingController) {
+      if ( authService.authenticated )
+        navCtrl.setRoot(OverviewPage);
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+    // console.log('ionViewDidLoad LoginPage');
   }
 
   signIn() {
@@ -62,7 +64,7 @@ export class LoginPage {
   }
 
   openPage(){
-    this.navCtrl.setRoot(CriarContaPage);
+    this.navCtrl.push(CriarContaPage);
   }
 
 }

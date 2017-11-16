@@ -13,8 +13,9 @@ import { LoginPage } from '../pages/login/login';
 import { BlocoPage } from '../pages/bloco/bloco';
 import { OverviewPage } from '../pages/overview/overview';
 import { SolicitacaoPage } from '../pages/solicitacao/solicitacao';
+import { TabsPage } from '../pages/tabs/tabs';
 
-// import { TabsPage } from '../pages/tabs/tabs';
+import { AuthService } from '../providers/auth/auth-service';
 
 @Component({
   templateUrl: 'app.html'
@@ -22,24 +23,29 @@ import { SolicitacaoPage } from '../pages/solicitacao/solicitacao';
 export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
+  // rootPage: any = TabsPage;
   rootPage: any = HomePage;
+  nome: string;
 
-  pages: Array<{title: string, component: any, icon: string}>;
+  public pages: Array<{title: string, component: any, icon: string}>;
 
   constructor(
     public platform: Platform,
     public statusBar: StatusBar,
+    private conta: AuthService,
     public splashScreen: SplashScreen) {
 
     this.initializeApp();
-    // used for an example of ngFor and navigation
-    this.pages = [
-      { title: 'Home', component: HomePage, icon: "home" },
-      { title: 'Login', component: LoginPage, icon: "log-in" },
-      { title: 'Overview', component: OverviewPage, icon: "list" },
-      { title: 'Segment', component: ListPage, icon: "list" },
-      { title: 'Solicitação', component: SolicitacaoPage, icon: "clipboard" }];
 
+    this.pages = [
+      { title: 'Página Inicial', component: HomePage, icon: "home" },
+      { title: 'Gerenciar', component: LoginPage, icon: "clipboard" }];
+      // { title: 'Overview', component: OverviewPage, icon: "list" },
+      // { title: 'Segment', component: ListPage, icon: "list" },
+      // { title: 'Solicitação', component: SolicitacaoPage, icon: "clipboard" }
+
+    this.nome = this.conta.nome;
+    console.log("CONSTRUTOR", this.nome);
   }
 
   initializeApp() {
@@ -50,13 +56,21 @@ export class MyApp {
   }
 
   openPage(page) {
-    if ( page.component == HomePage )
-      this.nav.setRoot(page.component);
-    else
-      this.nav.push(page.component);
+    if ( this.nav.getActive().component.name != page.component.name ) {
+      if ( page.component == HomePage )
+        this.nav.goToRoot(HomePage);
+      else if ( page.component == LoginPage && this.conta.authenticated )
+        this.nav.setRoot(OverviewPage);
+      else
+        this.nav.push(page.component);
+    }
+    this.nome = this.conta.nome;
+    // console.log("DE: ", this.nav.getActive().component.name);   // pagina atual
+    // console.log("PARA: ", page.component.name);
   }
 
-  logar(){
-    this.nav.push(LoginPage);
+  feedback() {
+    if ( this.nav.getActive().component.name != BlocoPage.name )
+      this.nav.push(BlocoPage);
   }
 }

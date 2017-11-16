@@ -13,11 +13,24 @@
   <form #form="ngForm" novalidate>
 
     <ion-item>
-      <ion-label stacked>Nome completo</ion-label>
-      <ion-input type="text" name="nomeCompleto" [(ngModel)]="user.nomeCompleto" #nomeCompleto="ngModel" required></ion-input>
+      <ion-label stacked>Usuário</ion-label>
+      <ion-input type="text" name="apelido" [(ngModel)]="user.apelido" #apelido="ngModel" required></ion-input>
     </ion-item>
-    <ion-item *ngIf="nomeCompleto.errors && (nomeCompleto.dirty || nomeCompleto.touched)" class="text-danger">
+    <ion-item *ngIf="apelido.errors && (apelido.dirty || apelido.touched)" class="text-danger">
         Campo obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <ion-item>
+      <ion-label stacked>Nome</ion-label>
+      <ion-input type="text" name="nome" [(ngModel)]="user.nome" #nome="ngModel" required></ion-input>
+    </ion-item>
+    <ion-item *ngIf="nome.errors && (nome.dirty || nome.touched)" class="text-danger">
+        Campo obrigatório
+    </ion-item>
+    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
+    <ion-item>
+      <ion-label stacked>Sobrenome</ion-label>
+      <ion-input type="text" name="sobrenome" [(ngModel)]="user.sobrenome" #sobrenome="ngModel"></ion-input>
     </ion-item>
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     <ion-item>
@@ -45,14 +58,6 @@
     <ion-item *ngIf="password.errors && (password.dirty || password.touched)" class="text-danger">
         O campo é obrigatório
     </ion-item>
-    <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
-    <!--            CAMPO PARA REPETIÇÃO DE SENHA -->
-    <!-- <ion-item>
-      <ion-input type="password" name="rsenha" placeholder="Repita a senha" [(ngModel)]="rsenha" #rsenha="ngModel" required></ion-input>
-    </ion-item>
-    <ion-item *ngIf="rsenha == password" class="text-danger">
-        O campo é obrigatório
-    </ion-item> -->
     <!-- \\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\ -->
     <button ion-button block color="primary" [disabled]="!form.form.valid" (click)="criarConta()">
       Criar

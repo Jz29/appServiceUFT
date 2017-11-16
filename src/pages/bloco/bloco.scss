@@ -1,3 +1,24 @@
 page-bloco {
 
+  #text-feedback {
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic;
+  }
+
+  #text-feedback-big {
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic;
+    font-size: 25px;
+  }
+
+  #text-feedback-small {
+    font-family: "Courier New", Courier, monospace;
+    font-style: italic;
+    font-size: 14px;
+  }
+
+  .enviar {
+    text-align: center;
+  }
+
 }

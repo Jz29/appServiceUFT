@@ -17,6 +17,8 @@ export class CriarContaPage {
   user: User = new User();                 // providers
   @ViewChild('form') form: NgForm;
 
+  usuario: any;
+
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
@@ -31,12 +33,31 @@ export class CriarContaPage {
       duration: 1500
     });
 
-    if (this.user.email.indexOf('@') == -1)                   // COMPLETA O EMAIL COM @uft.edu.br
-      this.user.email = this.user.email + '@uft.edu.br'       //
+    if (this.user.email.indexOf('@') == -1)                         // COMPLETA O EMAIL COM @uft.edu.br
+      this.user.email = this.user.email + '@uft.edu.br'
 
     this.authService.createUser(this.user)
     .then(() => {
       carregando.present();
+
+      this.authService.signIn(this.user)  // FAZ LOGIN APÓS CRIAR A CONTA
+      .then(() => {
+        this.usuario = this.authService.usuario;
+        this.usuario.updateProfile({
+          displayName: this.user.apelido,
+          nome: this.user.nome,
+          sobrenome: this.user.sobrenome,
+          phoneNumber: this.user.matricula,
+          photoURL: this.user.img
+        }).then(function() {
+          console.log("ALTERAÇÃO DE PERFIL CONCLUIDO");
+        }).catch(function(error) {
+          console.log("ERRO NA ALTERAÇÃO DE PERFIL", error);
+        });
+      }).catch((error) => {
+        console.log("NÃO FOI POSSIVEL LOGAR", error);
+      });
+
       this.navCtrl.setRoot(HomePage);
     })
     .catch((error: any) => {                                    // se der erro

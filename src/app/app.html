@@ -1,25 +1,33 @@
 <ion-menu [content]="content">
   <ion-header>
-    <ion-toolbar>
-      <ion-card>
-        <ion-item>
-          <ion-avatar item-start>
-            <img src="assets/image/estudanteIcone.png"> <!-- IMAGEM DO USUÁRIO -->
-          </ion-avatar>
-          <h2 text-right>Meu Perfil</h2>
-        </ion-item>
-      </ion-card>
+    <ion-toolbar class="painel-menu" color="dark">
+      <!-- <img src="assets/image/fundo7.jpg"> -->
+      <h2 id="bem-vindo">Bem vindo {{this.nome}}</h2>
     </ion-toolbar>
   </ion-header>
 
-  <ion-content> <!-- style="background: url(assets/image/fundo7.jpg)" -->
+  <ion-content id="content-menu">
     <ion-list>
-      <button menuClose icon-only ion-item *ngFor="let p of pages" (click)="openPage(p)" class="botao">
-        <!-- <ion-icon name={{p.icon}} icon-start></ion-icon> -->
+      <button color="dark" menuClose icon-only ion-item *ngFor="let p of pages" (click)="openPage(p)" class="botao" icon-left>
+        <ion-icon name={{p.icon}}></ion-icon>
         {{p.title}}
       </button>
     </ion-list>
   </ion-content>
+
+  <ion-footer>
+    <ion-list>
+      <button color="dark" (click)="feedback()" menuClose icon-only ion-item class="botao" icon-left>
+        <ion-icon ios="ios-help-circle" md="md-help-circle"></ion-icon>
+        Sobre
+      </button>
+
+      <button color="dark" (click)="feedback()" menuClose icon-only ion-item class="botao" icon-left>
+        <ion-icon ios="ios-bulb" md="md-bulb"></ion-icon>
+        Feedback
+      </button>
+    </ion-list>
+  </ion-footer>
 
 </ion-menu>
 

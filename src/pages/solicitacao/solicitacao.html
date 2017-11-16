@@ -1,125 +1,76 @@
-<ion-content >
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Adicionais e Agendamento
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+
   <ion-list>
+    <ion-item class="divisao divisao-tema" color="dark" (click)="esconder_mostrar()">
+      <ion-label>Aparelhos</ion-label>
+    </ion-item>
 
-    <form>
-
-      <ion-item class="divisao"><ion-label><h3>Aparelhos</h3></ion-label></ion-item>
-
+    <div *ngIf="( this.aparelhos )">
       <ion-item class="divisao">
-        <ion-label stacked><h2>Ar-condicionado</h2></ion-label>
-        <ion-toggle></ion-toggle>
+        <ion-label><h2>Ar-condicionado</h2></ion-label>
+        <ion-toggle [(ngModel)]="this.ar"></ion-toggle>
       </ion-item>
 
-      <!-- <ion-item class="range range-calm">Temperatura
-      <input type="range" value="50" min="16" max="26" step="1">
-    </ion-item> -->
+      <ion-item class="divisao">
+        <ion-label><h2>Data-show</h2></ion-label>
+        <ion-toggle [(ngModel)]="this.ds"></ion-toggle>
+      </ion-item>
 
-    <ion-item class="divisao">
-      <ion-label stacked><h2>Data-show</h2></ion-label>
-      <ion-toggle></ion-toggle>
+      <ion-item class="divisao">
+        <ion-label><h2>Outros</h2></ion-label>
+        <ion-input [(ngModel)]="this.outros" type="text" placeholder="Ex.: Cabo HDMI, Caixa de som, Cabo de rede..."></ion-input>
+      </ion-item>
+    </div>
+  </ion-list>
+
+  <ion-list>
+    <ion-item class="divisao divisao-tema" color="dark" (click)="esconder_mostrar()">
+      <ion-label>Agendamento</ion-label>
     </ion-item>
 
-    <ion-item class="divisao">
-      <ion-label><h2>Outros</h2></ion-label>
-      <ion-input type="text" placeholder="Ex.: Cabo HDMI, Caixa de som, Cabo de rede..."></ion-input>
-    </ion-item>
+    <div *ngIf="( this.agendamento )">
+      <ion-item class="divisao">
+        <ion-label><h2>Dia</h2></ion-label>
+        <ion-datetime [(ngModel)]="this.d" displayFormat="DD/MM" cancelText="Cancelar" doneText="Enviar"></ion-datetime>
+      </ion-item>
 
-  </form>
-</ion-list>
+      <ion-item class="divisao">
+        <ion-label><h2>Horario</h2></ion-label>
+        <ion-datetime [(ngModel)]="this.hora" displayFormat="HH:mm" cancelText="Cancelar" doneText="Enviar"></ion-datetime>
+      </ion-item>
 
-<ion-list>
-  <form>
+      <ion-item class="divisao">
+        <ion-label><h2>Ar-condicionado</h2></ion-label>
+        <ion-toggle [(ngModel)]="this.ar"></ion-toggle>
+      </ion-item>
 
-    <ion-item class="divisao"><ion-label><h3>Agendamento</h3></ion-label></ion-item>
+      <ion-item class="divisao">
+        <ion-label><h2>Data-show</h2></ion-label>
+        <ion-toggle [(ngModel)]="this.ds"></ion-toggle>
+      </ion-item>
 
-    <ion-item class="divisao">
-      <ion-label stacked><h2>Ar-condicionado</h2></ion-label>
-      <ion-toggle></ion-toggle>
-    </ion-item>
-
-    <ion-item class="divisao">
-      <ion-label><h2>Dia</h2></ion-label>
-      <ion-datetime displayFormat="DD/MM"></ion-datetime>
-    </ion-item>
-
-    <ion-item class="divisao">
-      <ion-label><h2>Horario</h2></ion-label>
-      <ion-datetime displayFormat="HH:mm"></ion-datetime>
-    </ion-item>
-
-  </form>
-
+      <ion-item class="divisao">
+        <ion-label><h2>Outros</h2></ion-label>
+        <ion-input [(ngModel)]="this.outros" type="text" placeholder="Ex.: Cabo HDMI, Caixa de som, Cabo de rede..."></ion-input>
+      </ion-item>
+    </div>
   </ion-list>
 
 </ion-content>
 
-
-<!--
-<ion-content>
-
-<form #form="ngForm" novalidate>
-
-<ion-list>
-<ion-item>
-<ion-label>Toppings</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label floating>Gammig</ion-label>
-<ion-label>Debug</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label stacked>Tools</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label>Debug</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label>Tracking</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label>List</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-<ion-item>
-<ion-label>Ordenation</ion-label>
-<ion-select multiple="true" cancelText="Nah" okText="Okay!">
-<ion-option value="bacon" selected="true">Bacon</ion-option>
-<ion-option value="olives">Black Olives</ion-option>
-<ion-option value="xcheese" selected="true">Extra Cheese</ion-option>
-</ion-select>
-</ion-item>
-</ion-list>
-
-</form>
-
-</ion-content>
--->
+<ion-footer>
+  <ion-toolbar>
+    <button class="enviar" color="secondary" (click)="enviar()" ion-button icon-only full>
+      Solicitar
+      <ion-icon name="send" icon-end></ion-icon>
+    </button>
+  </ion-toolbar>
+</ion-footer>

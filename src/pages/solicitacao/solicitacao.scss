@@ -1,6 +1,21 @@
 page-solicitacao {
 
-  .divisao{
+  .divisao {
     margin:10px auto;
+  }
+
+  .divisao-tema {
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+
+  .item-md-dark, .item-divider-md-dark {
+    color: #fff;
+    background-color: rgb(140,140,140);
+  }
+
+  .enviar {
+    text-align: center;
   }
 }

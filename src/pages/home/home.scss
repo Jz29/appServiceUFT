@@ -51,4 +51,25 @@ page-home {
       color: #fff;
     }
   }
+
+  .action-sheet-cancel {
+    text-align: center;
+    color: rgb(255,100,100);
+  }
+
+  #easel-button {
+    position: relative;
+    width: 42px;
+    top:1px;
+    right: 1px;
+    overflow: visible!important;
+  }
+
+  #easel-badge {
+    background-color: red;
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    border-radius: 20%;
+  }
 }

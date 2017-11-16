@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar no-border-bottom class="navbar">
+  <ion-navbar class="navbar">
 
     <ion-title (click)="mudarBloco()" style="text-align: center;">{{this.blocoIndice}}</ion-title>
 
@@ -7,9 +7,10 @@
       <ion-icon name="menu"></ion-icon>
     </button>
 
-    <ion-buttons end>
-      <button ion-button icon-only>
-        <ion-icon name="search"></ion-icon>
+    <ion-buttons (click)="quadro_De_Avisos()" end>
+      <button id="easel-button" ion-button icon-only>
+        <ion-icon name="easel"></ion-icon>
+        <ion-badge id="easel-badge" color="danger">2</ion-badge> <!-- *ngIf=" (quadro de avisos != 0) " -->
       </button>
     </ion-buttons>
 
@@ -26,14 +27,14 @@
 
 </ion-content>
 
-<ion-footer>
-  <ion-toolbar>
+<!-- <ion-footer>
+
     <ion-tabs class="tabs-basic">
       <ion-tab tabTitle="Home" [root]="rootPage"></ion-tab>
       <ion-tab tabTitle="News" [root]="rootPage"></ion-tab>
     </ion-tabs>
-  </ion-toolbar>
-</ion-footer>
+
+</ion-footer> -->
 
 <!-- <ion-item>
 <ion-label>Dia:</ion-label>
